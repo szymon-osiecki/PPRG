@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    int a = 0; // n - 2 wyraz ciągu
+    int b = 1; // n - 1 wyraz ciągu
+    int wynik = 1;
+    cin >> n;
+    if (n == 0)
+    {
+        cout << n << " wyraz ciagu to " << 0;
+        return 0;
+    }
+    for (int i = 2; i <= n; i++)
+    {
+        wynik = a + b;
+        a = b;
+        b = wynik;
+    }
+    cout << n << " wyraz ciagu to " << wynik;
+}
