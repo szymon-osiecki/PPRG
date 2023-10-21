@@ -9,13 +9,14 @@ int main()
     cin >> x;
     cout << "Podaj y: ";
     cin >> y;
-    if (x > y || x <= 1)
+    if (x > y || x <= 0)
     {
         cout << "Nieprawidłowy zakres";
         return 0;
     }
     for (int i = x; i <= y; i++)
     {
+        if (i == 1) continue;
         for (int j = 2; j < i / 2 + 1; j++)
         {
             if (i % j == 0)
