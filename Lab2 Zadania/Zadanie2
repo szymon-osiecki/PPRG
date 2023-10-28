@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int x, y;
+	int suma1 = 0;
+	int suma2 = 0;
+	cout << "Poczatek zakresu: ";
+	cin >> x;
+	cout << "Koniec zakresu: ";
+	cin >> y;
+	if (x >= y || x <= 0) 
+	{
+		cout << "Nieprawidłowy zakres";
+		return 0;
+	}
+	for (int i = x; i <= y; i++)
+	{
+		for (int j = 1; j < i / 2 + 1; j++)
+		{
+			if (i % j == 0)
+			{
+				suma1 += j;
+			}
+		}
+		for (int k = x; k <= i; k++)
+		{
+			for (int l = 1; l < k / 2 + 1; l++)
+			{
+				if (k % l == 0)
+				{
+					suma2 += l;
+				}
+			}
+			if (suma1 == k && suma2 == i && k != i)
+			{
+				cout << i << " oraz " << k << endl;
+			}
+			suma2 = 0;
+		}
+		suma1 = 0;
+	}
+}
