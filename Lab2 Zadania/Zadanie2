@@ -35,7 +35,7 @@ int main()
 			}
 			if (suma1 == k && suma2 == i && k != i)
 			{
-				cout << i << " oraz " << k << endl;
+				cout << k << " oraz " << i << endl;
 			}
 			suma2 = 0;
 		}
