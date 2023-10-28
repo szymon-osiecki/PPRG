@@ -1,0 +1,85 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int main()
+{
+	string wybor, decyzja;
+	int los, wynik_gracza = 0, wynik_programu = 0;
+	while (true)
+	{
+		cout << "Co wybierasz? :";
+		cin >> wybor;
+		if (wybor != "papier" && wybor != "kamien" && wybor != "nozyce")
+		{
+			cout << "Nieprawidlowy wybor" << endl;
+			continue;
+		}
+		los = rand() % 3;
+		if (los == 0)
+		{
+			cout << "Wybralem papier" << endl;
+			if (wybor == "papier") cout << "Czeski remis"<< endl;
+			else if (wybor == "kamien")
+			{
+				cout << "Wygralem" << endl;
+				wynik_programu += 1;
+			}
+			else
+			{
+				cout << "Wygrales" << endl;
+				wynik_gracza += 1;
+			}
+		}
+		else if (los == 1)
+		{
+			cout << "Wybralem kamien" << endl;
+			if (wybor == "kamien") cout << "Czeski remis" << endl;
+			else if (wybor == "nozyce")
+			{
+				cout << "Wygralem" << endl;
+				wynik_programu += 1;
+			}
+			else
+			{
+				cout << "Wygrales" << endl;
+				wynik_gracza += 1;
+			}
+		}
+		else
+		{
+			cout << "Wybralem nozyce" << endl;
+			if (wybor == "nozyce") cout << "Czeski remis" << endl;
+			else if (wybor == "papier")
+			{
+				cout << "Wygralem" << endl;
+				wynik_programu += 1;
+			}
+			else
+			{
+				cout << "Wygrales" << endl;
+				wynik_gracza += 1;
+			}
+		}
+		cout << "Twoj wynik: " << wynik_gracza << endl << "Moj wynik: " << wynik_programu << endl << endl;
+		while (true)
+		{
+			cout << "Gramy dalej?(tak/nie): ";
+			cin >> decyzja;
+			if (decyzja != "tak" && decyzja != "nie")
+			{
+				cout << "Nie rozumiem" << endl;
+				continue;
+			}
+			else if (decyzja == "tak")
+			{
+				break;
+			}
+			else
+			{
+				cout << "Dziekuje za rozgrywke" << endl;
+				return 0;
+			}
+		}
+	}
+}
