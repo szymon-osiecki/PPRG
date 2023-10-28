@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	double n, r, p, nty, suma;
+	cout << "Wprowadz pierwszy wyraz ciagu: ";
+	cin >> p;
+	cout << "Wprowadz roznice: ";
+	cin >> r;
+	cout << "Wprowadz liczbe elementow: ";
+	cin >> n;
+	nty = p + (n - 1) * r;
+	suma = (p + nty) / 2 * n;
+	cout << suma;
+}
