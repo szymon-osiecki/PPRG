@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+bool czy_szescian(int a)
+{
+	for (int i = 1; i * i * i <= a; i++)
+	{
+		if (i * i * i == a)
+		{
+			return 1;
+		}
+	}
+	return 0;
+}
+
+int main() 
+{
+	int x = 64;
+	int y = 60;
+	cout << czy_szescian(x) << endl;
+	cout << czy_szescian(y);
+}
