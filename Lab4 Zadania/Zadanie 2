@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+
+int dwumian_i(int a, int b) {
+    int wynik = 1;
+    for (int i = 0; i < b; i++) {
+        wynik = (wynik * (a - i)) / (i + 1);
+    }
+
+    return wynik;
+}
+
+int dwumian_r(int a, int b) {
+    if (b > a) {
+        return 0;
+    }
+    if (b == 0 || b == a) {
+        return 1;
+    }
+
+    return dwumian_r(a - 1, b - 1) + dwumian_r(a - 1, b);
+}
+
+int euklides_i(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+
+    return a;
+}
+
+int euklides_r(int a, int b) {
+    if (b == 0) {
+        return a;
+    }
+
+    return euklides_i(b, a % b);
+}
+
+int main() {
+    int x, y;
+    cout << "Podaj x: ";
+    cin >> x;
+    cout << "Podaj y: ";
+    cin >> y;
+    cout << "Dwumian iteracja: " << dwumian_i(x, y) << endl;
+    cout << "Dwumian rekurencja: " << dwumian_r(x, y) << endl;
+    cout << "Euklides iteracja: " << euklides_i(x, y) << endl;
+    cout << "Euklides rekurencja: " << euklides_r(x, y) << endl;
+}
