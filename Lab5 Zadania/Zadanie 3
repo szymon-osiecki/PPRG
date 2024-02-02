@@ -1,0 +1,24 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void ciag(double pierwszy, double r, int dlugosc) {
+	int suma1 = 0;
+	int suma2 = 0;
+	int art = pierwszy;
+	int geo = pierwszy;
+	for (int i = 0; i < dlugosc; i++) {
+		suma1 += art;
+		art += r;
+		suma2 += geo;
+		geo *= r;
+	}
+	cout << "Suma wyrazow ciagu arytmetycznego: " << suma1 << endl;
+	cout << "Suma wyrazow ciagu geometrycznego: " << suma2 << endl;
+}
+
+int main() {
+	double a = 1, b = 2;
+	int c = 4;
+	ciag(a, b, c);
+}
