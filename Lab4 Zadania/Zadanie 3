@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+double pole(double a) {
+	return a * a;
+}
+
+double pole(double a, double b) {
+	return a * b;
+}
+
+double pole(double a, double b, double c) {
+	if (a + b > c && c + b > a && a + c > b) {
+		double p = (a + b + c) / 2;
+		double w = sqrt(p * ((p - a) * (p - b) * (p - c)));
+		return w;
+	}
+	else {
+		return 0;
+	}
+}
+double pole(double r, double* pi) {
+	return *pi* r* r;
+}
+
+int main() {
+	double a, b, c, pi = 3.14;
+	int s;
+	cout << "Wybierz figure: 1 - kwadrat, 2 - prostokat, 3 - trojkat, 4 - kolo: ";
+	cin >> s;
+	switch (s) {
+	case 1:
+		cout << "Podaj dlugosc a: ";
+		cin >> a;
+		cout << "Pole kwadratu wynosi: " << pole(a);
+		break;
+	case 2:
+		cout << "Podaj dlugosci a i b: ";
+		cin >> a >> b;
+		cout << "Pola prostokata wynosi: " << pole(a, b);
+		break;
+	case 3:
+		cout << "Podaj dlugosci a, b i c: ";
+		cin >> a >> b >> c;
+		cout << "Pole trojkata wynosi: " << pole(a, b, c);
+		break;
+	case 4:
+		cout << "Podaj dlugosc r: ";
+		cin >> a;
+		cout << "Pole kola wynosi: " << pole(a, &pi);
+		break;
+	default:
+		cout << "Bledny numer figury.";
+	}
+}
