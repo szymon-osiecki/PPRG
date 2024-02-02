@@ -1,0 +1,20 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+struct punkt{
+	double x;
+	double y;
+};
+
+void odleglosc(punkt a, punkt b) {
+	double wynik;
+	wynik = sqrt(pow((b.x - a.x), 2) + pow((b.y - a.y), 2));
+	cout << "Odleglosc miedzy punktami wynosi: " << wynik;
+}
+
+int main() {
+	punkt a = { 2, 1 };
+	punkt b = { 3, 7 };
+	odleglosc(a, b);
+}
