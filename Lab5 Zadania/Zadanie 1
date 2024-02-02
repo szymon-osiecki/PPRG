@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+void swap(int* tablica, int i, int j) {
+    int temp = tablica[i];
+    tablica[i] = tablica[j];
+    tablica[j] = temp;
+}
+
+int divide(int* tablica, int start, int end) {
+    int pivot = tablica[end];
+    int i = start - 1;
+
+    for (int j = start; j < end; ++j) {
+        if (tablica[j] <= pivot) {
+            ++i;
+            swap(tablica, i, j);
+        }
+    }
+    swap(tablica, i + 1, end);
+    return i + 1;
+}
+
+void quicksort(int* tablica, int start, int end) {
+    if (start < end) {
+        int pivotIndex = divide(tablica, start, end);
+
+        quicksort(tablica, start, pivotIndex - 1);
+        quicksort(tablica, pivotIndex + 1, end);
+    }
+}
+
+int tablica_globalna[] = { 12, 4, 5, 6, 7, 89, 3, 420, 1, 15 };
+
+int main() {
+    int rozmiar = sizeof(tablica_globalna) / sizeof(tablica_globalna[0]);
+
+    cout << "Tablica przed sortowaniem szybkim:" << endl;
+    for (int i = 0; i < rozmiar; ++i) {
+        cout << tablica_globalna[i] << " ";
+    }
+
+    quicksort(tablica_globalna, 0, rozmiar - 1);
+
+    cout << "\nTablica po sortowaniu szybkim:" << endl;
+    for (int i = 0; i < rozmiar; ++i) {
+        cout << tablica_globalna[i] << " ";
+    }
+
+    return 0;
+}
